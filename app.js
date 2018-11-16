@@ -1,5 +1,5 @@
 // Set the size of the canvas
-size(500,500);
+size(800,800);
 
 draw = function() {
     background(160,199,255);

@@ -1,0 +1,5 @@
+body {
+  margin: 5px;
+  background-color: gray;
+  -webkit-user-select: none;
+}

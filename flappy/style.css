@@ -1,5 +1,12 @@
+
+html {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
 body {
   margin: 5px;
   background-color: gray;
   -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }

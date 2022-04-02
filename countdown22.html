@@ -49,11 +49,11 @@
 
     // Update the count down every 1 second
     let x = setInterval(function() {
-        let skipCount = 0;
+        var skipCount = 0;
 
         // Get today's date and time
-        let now = new Date().getTime();
-            
+        var now = new Date().getTime();
+
         // Find the distance between now and the count down date
         var distance = countDownDate - now;
             
@@ -62,12 +62,14 @@
 
         // Count skipped days remaining
         for (let d = 0; d < skipThese.length; d++) {
-            if(Math.floor((countDownDate - skipThese[d]) / (1000 * 60 * 60 *24) > 0)) {
+            let gap = Math.ceil((skipThese[d] - now) / (1000 * 60 * 60 * 24));
+            // console.log(now + ", " + skipThese[d] + ", " + gap);
+            if( gap > 0) {
                 skipCount++;
             }
         }
 
-        days = days - skipCount + 1; // subtract non-senior school days and round up.
+        days = days - skipCount + 1; // subtract non-senior school days.
 
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -87,4 +89,3 @@
 
 </body>
 </html>
-

@@ -6,19 +6,17 @@
 
     <style>
         body {
-            margin: 20px;
+            margin: 25px;
         }
 
         h1 {
           text-align: center;
-          font-size: 3em;
           font-family: monospace;
         } 
         
         #demo {
           text-align: center;
           font-family: monospace;
-          font-size: 5em;
           color: darkred;   
         }
     </style>
@@ -28,21 +26,48 @@
     <h2 id="demo"></h2>
 
     <script>
+    let skipThese = [new Date("Apr 2, 2022 00:01:00").getTime(),
+                     new Date("Apr 3, 2022 00:01:00").getTime(),
+                     new Date("Apr 9, 2022 00:01:00").getTime(),
+                     new Date("Apr 10, 2022 00:01:00").getTime(),
+                     new Date("Apr 13, 2022 00:01:00").getTime(),
+                     new Date("Apr 14, 2022 00:01:00").getTime(),
+                     new Date("Apr 15, 2022 00:01:00").getTime(),
+                     new Date("Apr 16, 2022 00:01:00").getTime(),
+                     new Date("Apr 17, 2022 00:01:00").getTime(),
+                     new Date("Apr 23, 2022 00:01:00").getTime(),
+                     new Date("Apr 24, 2022 00:01:00").getTime(),
+                     new Date("Apr 30, 2022 00:01:00").getTime(),
+                     new Date("May 1, 2022 00:01:00").getTime(),
+                     new Date("May 7, 2022 00:01:00").getTime(),
+                     new Date("May 8, 2022 00:01:00").getTime(),
+                     new Date("May 14, 2022 00:01:000").getTime(),
+                     new Date("May 15, 2022 00:01:00").getTime()];
+
     // Set the date we're counting down to
-    var countDownDate = new Date("May 20, 2022 10:41:00").getTime();
+    let countDownDate = new Date("May 20, 2022 10:41:00").getTime();
 
     // Update the count down every 1 second
-    var x = setInterval(function() {
+    let x = setInterval(function() {
+        let skipCount = 0;
 
         // Get today's date and time
-        var now = new Date().getTime();
+        let now = new Date().getTime();
             
         // Find the distance between now and the count down date
         var distance = countDownDate - now;
             
         // Time calculations for days, hours, minutes and seconds
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        days = days - 16; // subtract non-senior school days
+
+        // Count skipped days remaining
+        for (let d = 0; d < skipThese.length; d++) {
+            if(Math.floor((countDownDate - skipThese[d]) / (1000 * 60 * 60 *24) > 0)) {
+                skipCount++;
+            }
+        }
+
+        days = days - skipCount + 1; // subtract non-senior school days and round up.
 
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -62,3 +87,4 @@
 
 </body>
 </html>
+

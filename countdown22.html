@@ -63,7 +63,7 @@
 
         // Count skipped days remaining
         for (let d = 0; d < skipThese.length; d++) {
-            let gap = Math.ceil((skipThese[d] - now) / (1000 * 60 * 60 * 24));
+            let gap = Math.floor((skipThese[d] - now) / (1000 * 60 * 60 * 24));
             // console.log(now + ", " + skipThese[d] + ", " + gap);
             if( gap > 0) {
                 skipCount++;

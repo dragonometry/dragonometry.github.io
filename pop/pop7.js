@@ -240,14 +240,15 @@ POP.addEventListeners = function() {
         false
     );
 
-    window.addEventListener('touchmove',
+    window.addEventListener('touchmove', preventDefault, { passive: false });
+    /* window.addEventListener('touchmove',
         function(e) {
             // we're not interested in this, but prevent default
             // behaviour so the screen doesn't scroll or zoom
             e.preventDefault();
         },
         false
-    );
+    );*/
 
     window.addEventListener('touchend',
         function(e) {

@@ -2,7 +2,10 @@ body {
     margin: 0;
     padding: 0;
     background: #000;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
 }
+
 canvas {
     display: block;
     margin: 0 auto;

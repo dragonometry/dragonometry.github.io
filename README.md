@@ -4,4 +4,4 @@
 
 ## Dragonometry Website
 
-Trying out Github Pages for hosting the Dragonometry website.
+Trying out Github Pages for hosting the [Dragonometry website](dragonometry.github.io).
